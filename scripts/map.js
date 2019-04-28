@@ -64,24 +64,29 @@ d3.json('scripts/map.geo.json', function(error, mapData) {
         .on('click', clicked)
         .call(d3.helper.tooltip(
             function(d){
-                return "<b>"+ nameFn(d);
+                return "<b>"+ nameFn(d) + "</b><br/>" + "<b>"+"ID: " +ID(d) + "</b>";
 
             }
         ));
 });
 
-// Get province name
+// Get neighborhood name
 function nameFn(d){
     return d && d.properties ? d.properties.Nbrhood : null;
 }
 
-// Get province name length
+// Get neighborhood ID
+function ID(d) {
+    return d && d.properties ? d.properties.Id : null;
+}
+
+// Get name length
 function nameLength(d){
     var n = nameFn(d);
     return n ? n.length : 0;
 }
 
-// Get province color
+// Get color
 function fillFn(d){
     return color(nameLength(d));
 }

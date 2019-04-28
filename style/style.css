@@ -1,0 +1,52 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Josefin+Slab|Arvo|Lato|Vollkorn|Abril+Fatface|Old+Standard+TT|Droid+Sans|Lobster|Inconsolata|Montserrat|Playfair+Display|Karla|Alegreya|Libre+Baskerville|Merriweather|Lora|Archivo+Narrow|Neuton|Signika|Questrial|Fjalla+One|Bitter|Varela+Round);
+
+html{
+    height: 100%;
+}
+body{
+    font: 12px Arial;
+}
+
+.background {
+    fill: #eee;
+    pointer-events: all;
+}
+
+.map-layer {
+    fill: #fff;
+    stroke: #aaa;
+}
+
+.effect-layer{
+    pointer-events:none;
+}
+
+text{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+}
+
+text.big-text{
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.effect-layer text, text.dummy-text{
+    font-size: 12px;
+}
+#worldMap{
+    position: relative;
+    background-color: #aaa;
+    border-style: solid;
+    border-color: #CCC;
+}
+.tooltip{ background-color:rgba(68,136,187,0.5);;
+    margin: 10px;
+    height: 50px;
+    width: 150px;
+    padding-left: 10px;
+    padding-top: 10px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+}

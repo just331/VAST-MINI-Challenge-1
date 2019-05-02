@@ -56,6 +56,7 @@ var div = d3.select("body")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
+var propObj = {data: null};
 // Load in my states data!
 d3.csv("dataset/test_data.csv", function(data) {
     color.domain([0,1,2,3]); // setting the range of the input data
@@ -126,6 +127,15 @@ d3.csv("dataset/test_data.csv", function(data) {
             .append("circle")
             .attr("cx", function(d) {
                 return d.location;
+/*                json.features.forEach(function (data) {
+                    console.log(data.properties.Id);
+                    console.log(d.location);
+                    if(data.properties.Id === d.location){
+                        propObj.data=data.properties;
+                    }
+                });
+                console.log(propObj.data);
+                return json.features.properties[d.location];*/
             })
             .attr("cy", function(d) {
                 return d.location;

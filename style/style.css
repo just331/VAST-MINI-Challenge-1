@@ -8,7 +8,7 @@ body{
 }
 
 .background {
-    fill: #eee;
+    fill: #fff;
     pointer-events: all;
 }
 
@@ -36,7 +36,7 @@ text.big-text{
 }
 #worldMap{
     position: fixed;
-    background-color: #aaa;
+    background-color: #fff;
     box-shadow: 0 1px 6px rgba(0,0,0,0.16), 0 2px 6px rgba(0,0,0,0.23);
     border-radius: 8px;
     margin: 0 auto;

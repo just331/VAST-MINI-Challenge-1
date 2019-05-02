@@ -57,7 +57,7 @@ var div = d3.select("body")
     .style("opacity", 0);
 
 // Load in my states data!
-d3.csv("dataset/reports_4_6_20.csv", function(data) {
+d3.csv("dataset/test_data.csv", function(data) {
     color.domain([0,1,2,3]); // setting the range of the input data
 
 // Load GeoJSON data and merge with states data
@@ -131,7 +131,10 @@ d3.csv("dataset/reports_4_6_20.csv", function(data) {
                 return d.location;
             })
             .attr("r", function(d) {
-                return Math.sqrt(d.shake_intensity) * 10;
+                if(d.shake_intensity > 0 && !null){
+
+                    return Math.sqrt(d.shake_intensity) * 10;
+                }
             })
             .style("fill", "rgb(217,91,67)")
             .style("opacity", 0.85)
@@ -140,7 +143,7 @@ d3.csv("dataset/reports_4_6_20.csv", function(data) {
                 div.transition()
                     .duration(200)
                     .style("opacity", .9);
-                div.text(d.shake_intensity)
+                div.text("Shake Intensity: " + d.shake_intensity)
                     .style("left", (d3.event.pageX) + "px")
                     .style("top", (d3.event.pageY - 28) + "px");
             })

@@ -1,7 +1,9 @@
 # VAST-MINI-Challenge-1
 Visualization and Visual Analytics Project 
 
-https://vast-challenge.github.io/2019/MC1.html 
+Project Overview: https://vast-challenge.github.io/2019/MC1.html 
+
+Demo Link: https://just331.github.io/VAST-MINI-Challenge-1/
 
 ## The Challenge:
 In a prescient move, the city of St. Himark released a new damage reporting mobile application shortly before the earthquake. This app allows citizens to provide more timely information to the city to help them understand damage and prioritize their response. In this mini-challenge, use app responses in conjunction with shake maps of the earthquake strength to identify areas of concern and advise emergency planners.

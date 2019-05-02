@@ -64,27 +64,24 @@ d3.csv("dataset/reports_4_6_20.csv", function(data) {
     d3.json("scripts/map.geo.json", function(json) {
 
 // Loop through each report in the .csv file
-        for (var i = 0; i < data.length; i++) {
+        for (let i = 0; i < data.length; i++) {
 
             // Grab location ID
-            var dataID = data[i].location;
+            let dataID = data[i].location;
 
             // Grab data value
-            var dataShake = data[i].shake_intensity;
+            let dataShake = data[i].shake_intensity;
 
             // Find the corresponding ID inside the GeoJSON
-            for (var j = 0; j < json.features.length; j++)  {
-                var jsonID = json.features[j].properties.Id;
-
+            for (let j = 0; j < json.features.length; j++)  {
+                let jsonID = json.features[j].properties.Id;
                 if (dataID == jsonID) {
-
                     // Copy the data value into the JSON
                     json.features[j].properties.intensity = dataShake;
                     break;
                 }
             }
         }
-
 // Bind the data to the SVG and create one path per GeoJSON feature
         svg.selectAll("path")
             .data(json.features)
@@ -155,7 +152,7 @@ d3.csv("dataset/reports_4_6_20.csv", function(data) {
 
 
 // Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
-        var legend = d3.select("body").append("svg")
+        let legend = d3.select("body").append("svg")
             .attr("class", "legend")
             .attr("width", 140)
             .attr("height", 200)
@@ -177,7 +174,6 @@ d3.csv("dataset/reports_4_6_20.csv", function(data) {
             .attr("dy", ".35em")
             .text(function(d) { return d; });
     });
-
 });
 
 /*

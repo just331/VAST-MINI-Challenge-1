@@ -2,16 +2,21 @@ let width = 900,
     height =500,
     centered;
 
-let color = d3.scaleLinear()
+/*let color = d3.scaleLinear()
     .domain([1,20])
     .clamp(true)
     .range(['#fff', '#409A99']);
+*/
+
+let color = d3.scaleLinear()
+    .range(["rgb(213,222,217)","rgb(69,173,168)","rgb(84,36,55)","rgb(217,91,67)"]);
 
 let projection = d3.geoMercator()
     .scale(110000)
     .center([-119, 0.01])
     .translate([2100,450]);
 
+let legendText = ["High", "Medium", "Low", "Nada"];
 
 let path = d3.geoPath()
     .projection(projection);
@@ -23,12 +28,12 @@ let svg = d3.select('#worldMap')
 svg.append('rect')
     .attr('class', 'background')
     .attr('width', width)
-    .attr('height', height)
-    .on('click', clicked);
+    .attr('height', height);
+    //.on('click', clicked);
 
 let g = svg.append('g');
 
-let effectLayer = g.append('g')
+/*let effectLayer = g.append('g')
     .classed('effect-layer', true);
 
 let mapLayer = g.append('g')
@@ -43,8 +48,139 @@ let dummyText = g.append('g')
 let bigText = g.append('text')
     .classed('big-text', true)
     .attr('x', 20)
-    .attr('y', 45);
+    .attr('y', 45);*/
 
+// Append Div for tooltip to SVG
+var div = d3.select("body")
+    .append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
+// Load in my states data!
+d3.csv("dataset/reports_4_6_20.csv", function(data) {
+    color.domain([0,1,2,3]); // setting the range of the input data
+
+// Load GeoJSON data and merge with states data
+    d3.json("scripts/map.geo.json", function(json) {
+
+// Loop through each report in the .csv file
+        for (var i = 0; i < data.length; i++) {
+
+            // Grab location ID
+            var dataID = data[i].location;
+
+            // Grab data value
+            var dataShake = data[i].shake_intensity;
+
+            // Find the corresponding ID inside the GeoJSON
+            for (var j = 0; j < json.features.length; j++)  {
+                var jsonID = json.features[j].properties.Id;
+
+                if (dataID == jsonID) {
+
+                    // Copy the data value into the JSON
+                    json.features[j].properties.intensity = dataShake;
+                    break;
+                }
+            }
+        }
+
+// Bind the data to the SVG and create one path per GeoJSON feature
+        svg.selectAll("path")
+            .data(json.features)
+            .enter()
+            .append("path")
+            .attr("d", path)
+            .style("stroke", "#fff")
+            .style("stroke-width", "1")
+            .style("fill", function(d) {
+
+                // Get data value
+                var value = d.properties.intensity;
+
+                if (value) {
+                    //If value exists…
+                    return color(value);
+                } else {
+                    //If value is undefined…
+                    return "rgb(213,222,217)";
+                }
+            })
+            .on("mouseover", function(d) {
+                div.transition()
+                    .duration(200)
+                    .style("opacity", .9);
+                div.text(d.properties.Id + ": " + d.properties.Nbrhood)
+                    .style("left", (d3.event.pageX) + "px")
+                    .style("top", (d3.event.pageY - 28) + "px");
+            })
+            .on("mouseout", function(d) {
+                div.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            });
+
+        svg.selectAll("circle")
+            .data(data)
+            .enter()
+            .append("circle")
+            .attr("cx", function(d) {
+                return d.location;
+            })
+            .attr("cy", function(d) {
+                return d.location;
+            })
+            .attr("r", function(d) {
+                return Math.sqrt(d.shake_intensity) * 10;
+            })
+            .style("fill", "rgb(217,91,67)")
+            .style("opacity", 0.85)
+
+            .on("mouseover", function(d) {
+                div.transition()
+                    .duration(200)
+                    .style("opacity", .9);
+                div.text(d.shake_intensity)
+                    .style("left", (d3.event.pageX) + "px")
+                    .style("top", (d3.event.pageY - 28) + "px");
+            })
+
+            // fade out tooltip on mouse out
+            .on("mouseout", function(d) {
+                div.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            });
+
+
+
+// Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
+        var legend = d3.select("body").append("svg")
+            .attr("class", "legend")
+            .attr("width", 140)
+            .attr("height", 200)
+            .selectAll("g")
+            .data(color.domain().slice().reverse())
+            .enter()
+            .append("g")
+            .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+        legend.append("rect")
+            .attr("width", 18)
+            .attr("height", 18)
+            .style("fill", color);
+
+        legend.append("text")
+            .data(legendText)
+            .attr("x", 24)
+            .attr("y", 9)
+            .attr("dy", ".35em")
+            .text(function(d) { return d; });
+    });
+
+});
+
+/*
 // Load map data
 d3.json('scripts/map.geo.json', function(error, mapData) {
     var features = mapData.features;
@@ -219,5 +355,5 @@ function textArt(text){
         });
 }
 
-
+*/
 

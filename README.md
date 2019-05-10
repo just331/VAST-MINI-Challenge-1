@@ -9,10 +9,11 @@ Demo Link: https://just331.github.io/VAST-MINI-Challenge-1/
 In a prescient move, the city of St. Himark released a new damage reporting mobile application shortly before the earthquake. This app allows citizens to provide more timely information to the city to help them understand damage and prioritize their response. In this mini-challenge, use app responses in conjunction with shake maps of the earthquake strength to identify areas of concern and advise emergency planners.
 
 1. Emergency responders will base their initial response on the earthquake shake map. Use visual analytics to determine how their response should change based on damage reports from citizens on the ground. How would you prioritize neighborhoods for response? Which parts of the city are hardest hit? Limit your response to 1000 words and 10 images.
-
+    * We were able to determine that on day 8 and day 10 were the days of most intense damage by the earthquake. This damage was mainly centered around the northern and eastern parts of the region. We suggest that emergency officials concentrate their resources around these neighborhoods, espc near the nuclear plant as that poses a danger to the public 
 2. Use visual analytics to show uncertainty in the data. Compare the reliability of neighborhood reports. Which neighborhoods are providing reliable reports? Provide a rationale for your response. Limit your response to 1000 words and 10 images.
-
+    * The uncerninty comes in when people would report damage in one area, severe damage to say power, but then 50 other people report only minor damage/shake intensity. We found that aggregating the data would be the best way to mitigate this problem of uncertinity, and pruging the outliers. 
 3. How do conditions change over time? How does uncertainty in change over time? Describe the key changes you see. Limit your response to 500 words and 8 images.
+    * We were unable to answer this question due to time constraints. 
 
 ## The Data: 
 * 83,072 rows 

@@ -51,7 +51,7 @@ let bigText = g.append('text')
     .attr('y', 45);*/
 
 // Append Div for tooltip to SVG
-let div = d3.select("body")
+let div = d3.select("#worldmap")
     .append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
@@ -165,7 +165,7 @@ d3.csv("dataset/test.csv", function(data) {
 
 
 // Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
-        let legend = d3.select("body").append("svg")
+        let legend = d3.select("#worldMap").append("svg")
             .attr("class", "legend")
             .attr("width", 140)
             .attr("height", 200)

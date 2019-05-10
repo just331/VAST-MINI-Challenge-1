@@ -35,7 +35,7 @@ text.big-text{
     font-size: 12px;
 }
 #worldMap{
-    position: fixed;
+    position: block;
     background-color: #fff;
     box-shadow: 0 1px 6px rgba(0,0,0,0.16), 0 2px 6px rgba(0,0,0,0.23);
     border-radius: 8px;
@@ -129,7 +129,7 @@ circle.hidden {
 }
 /*Fix dimensions of svg*/
 #scatterplot{
-    position: fixed;
+    display: block;
     right: 400px;
     height:550px;
     width: 600px;

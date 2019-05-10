@@ -114,6 +114,12 @@ text.big-text{
     top:350px;
 }
 
+.legend2 {
+    position: absolute;
+    left: 800px;
+    top:350px;
+}
+
 /* On mouse hover, lighten state color */
 path:hover {
     fill-opacity: .7;
@@ -180,11 +186,12 @@ circle.hidden {
 
 #scatterplot{
     display: block;
-    height:1550px;
-    width: 1600px;
+    height:1350px;
+    width: 1400px;
     background-color: #fff;
     box-shadow: 0 1px 6px rgba(0,0,0,0.16), 0 2px 6px rgba(0,0,0,0.23);
     border-radius: 8px;
+    padding: 20px;
     margin: 0 auto;
     font: 10px sans-serif;
 }

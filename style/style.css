@@ -7,15 +7,58 @@ body{
     font: 12px Arial;
 }
 
+button {
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  cursor:pointer;
+}
+
 .zoom {
   cursor: move;
   fill: none;
   pointer-events: all;
 }
 
-.line {
+.power_line {
   fill: none;
-  stroke: steelblue;
+  stroke: #b3953f;
+  stroke-width: 2px;
+}
+
+.sewer_and_water_line {
+  fill: none;
+  stroke: #a361c7;
+  stroke-width: 2px;
+}
+
+.roads_and_bridges_line {
+  fill: none;
+  stroke: #60a85f;
+  stroke-width: 2px;
+}
+
+.medical_line {
+  fill: none;
+  stroke: #c65c8a;
+  stroke-width: 2px;
+}
+
+.buildings_line {
+  fill: none;
+  stroke: #648ace;
+  stroke-width: 2px;
+}
+
+.shake_intensity_line {
+  fill: none;
+  stroke: #cb5c42;
   stroke-width: 2px;
 }
 

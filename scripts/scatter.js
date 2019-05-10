@@ -116,7 +116,7 @@ d3.csv("dataset/test.csv", function(error, data) {
     // Highlight the selected circles.
     function brushmove(p) {
         let e = d3.brushSelection(this);
-        svg.selectAll("circle").classed("hidden", function(d) {
+        svg1.selectAll("circle").classed("hidden", function(d) {
             return !e
                 ? false
                 : (
@@ -129,7 +129,7 @@ d3.csv("dataset/test.csv", function(error, data) {
     // If the brush is empty, select all circles.
     function brushend() {
         let e = d3.brushSelection(this);
-        if (e === null) svg.selectAll(".hidden").classed("hidden", false);
+        if (e === null) svg1.selectAll(".hidden").classed("hidden", false);
     }
 
     var legend2 = d3.select("#scatterplot").append("svg")

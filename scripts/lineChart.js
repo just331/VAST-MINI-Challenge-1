@@ -18,6 +18,24 @@ for (i = 0; i < buttons.length; i++) {
       elements.remove()
     } else {
       console.log("No Elements found");
+
+      // line = d3.line()
+      //   .x(function (d) { return x(d.date); })
+      //   .y(function (d) { return y(d.power); });
+      //
+      // line2 = d3.line()
+      //   .x(function (d) { return x2(d.date); })
+      //   .y(function (d) { return y2(d.power); });
+
+      // Line_chart.append("path")
+      //     .datum(data)
+      //     .attr("class", e.target.id + "_line line")
+      //     .attr("d", line);
+      //
+      // context.append("path")
+      //     .datum(data)
+      //     .attr("class", e.target.id + "_line line")
+      //     .attr("d", line2);
     }
   })
 }

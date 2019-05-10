@@ -1,15 +1,26 @@
 {
-  let buttons = document.getElementsByClassName("customButton");
+let line = d3.line()
+  .x(function (d) { return x(d.date); })
+  .y(function (d) { return y(d.power); });
 
-  for (i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", function(e) {
-      if (document.getElementsByClassName(e.target.id + "_line").length > 0) {
-        console.log("Elements found")
-      } else {
-        console.log("No Elements found");
-      }
-    })
-  }
+let line2 = d3.line()
+  .x(function (d) { return x2(d.date); })
+  .y(function (d) { return y2(d.power); });
+
+
+let buttons = $(".customButton");
+
+for (i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener("click", function(e) {
+    let elements = $("." + e.target.id + "_line")
+    if (elements.length > 0) {
+      console.log("Elements found")
+      elements.remove()
+    } else {
+      console.log("No Elements found");
+    }
+  })
+}
 
 let svg = d3.select("#lineChart"),
   margin = {top: 20, right: 20, bottom: 110, left: 40},
@@ -38,14 +49,6 @@ let zoom = d3.zoom()
     .translateExtent([[0, 0], [width, height]])
     .extent([[0, 0], [width, height]])
     .on("zoom", zoomed);
-
-let line = d3.line()
-  .x(function (d) { return x(d.date); })
-  .y(function (d) { return y(d.power); });
-
-let line2 = d3.line()
-  .x(function (d) { return x2(d.date); })
-  .y(function (d) { return y2(d.power); });
 
 let clip = svg.append("defs").append("svg:clipPath")
   .attr("id", "clip")

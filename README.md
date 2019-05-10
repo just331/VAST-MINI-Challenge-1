@@ -44,3 +44,5 @@ In a prescient move, the city of St. Himark released a new damage reporting mobi
 3. Database & Line Chart [Josh]
     3. Store the provided data for easy retrieval for visualizations
     3. Use API to get the data from database             
+    3. Use moving average algorithm to show average intensity of each time point in the dataset per category.
+    3. [Formula and Documentation for moving average](https://www.analog.com/media/en/technical-documentation/dsp-book/dsp_book_Ch15.pdf)

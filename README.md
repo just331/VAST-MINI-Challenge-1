@@ -29,13 +29,13 @@ In a prescient move, the city of St. Himark released a new damage reporting mobi
  
 ## Proposed Solution:
 
-1. Map [Justin]
+1. Map and scatter plot [Justin]
     1. Create a map of the town with "bubble" markers over places with reported damage/shake intensity
         1. The greater the intensity, the bigger the circle. 
         1. Assign Priority to locations (visualized via color scale on circle, blue to red).
         1. Able to hover over marker and see: location, shake intensity, and damage.
  
-2. Force Directed Graph [Adriana] 
+2. Scatter plot and styling [Adriana] 
     2.  Nodes will be locations 
     2. Edges are reports of damage/shake intensity 
     2. Show relations and connections of damage in specific locations

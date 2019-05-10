@@ -1,44 +1,5 @@
 {
-let line = d3.line()
-  .x(function (d) { return x(d.date); })
-  .y(function (d) { return y(d.power); });
-
-let line2 = d3.line()
-  .x(function (d) { return x2(d.date); })
-  .y(function (d) { return y2(d.power); });
-
-
-let buttons = $(".customButton");
-
-for (i = 0; i < buttons.length; i++) {
-  buttons[i].addEventListener("click", function(e) {
-    let elements = $("." + e.target.id + "_line")
-    if (elements.length > 0) {
-      console.log("Elements found")
-      elements.remove()
-    } else {
-      console.log("No Elements found");
-
-      // line = d3.line()
-      //   .x(function (d) { return x(d.date); })
-      //   .y(function (d) { return y(d.power); });
-      //
-      // line2 = d3.line()
-      //   .x(function (d) { return x2(d.date); })
-      //   .y(function (d) { return y2(d.power); });
-
-      // Line_chart.append("path")
-      //     .datum(data)
-      //     .attr("class", e.target.id + "_line line")
-      //     .attr("d", line);
-      //
-      // context.append("path")
-      //     .datum(data)
-      //     .attr("class", e.target.id + "_line line")
-      //     .attr("d", line2);
-    }
-  })
-}
+let globalData;
 
 let svg = d3.select("#lineChart"),
   margin = {top: 20, right: 20, bottom: 110, left: 40},
@@ -91,8 +52,100 @@ let context = svg.append("g")
     .attr("class", "context")
     .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
 
+let line = d3.line()
+  .x(function (d) { return x(d.date); })
+  .y(function (d) { return y(d.power); });
+
+let line2 = d3.line()
+  .x(function (d) { return x2(d.date); })
+  .y(function (d) { return y2(d.power); });
+
+
+let buttons = $(".customButton");
+
+for (i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener("click", function(e) {
+    let elements = $("." + e.target.id + "_line")
+    if (elements.length > 0) {
+      console.log("Elements found")
+      elements.remove()
+    } else {
+      console.log("No Elements found");
+      switch (e.target.id) {
+        case "sewer_and_water":
+          line = d3.line()
+            .x(function (d) { return x(d.date); })
+            .y(function (d) { return y(d.sewer_and_water); });
+
+          line2 = d3.line()
+            .x(function (d) { return x2(d.date); })
+            .y(function (d) { return y2(d.sewer_and_water); });
+          break;
+        case "power":
+          line = d3.line()
+            .x(function (d) { return x(d.date); })
+            .y(function (d) { return y(d.power); });
+
+          line2 = d3.line()
+            .x(function (d) { return x2(d.date); })
+            .y(function (d) { return y2(d.power); });
+          break;
+        case "roads_and_bridges":
+          line = d3.line()
+            .x(function (d) { return x(d.date); })
+            .y(function (d) { return y(d.roads_and_bridges); });
+
+          line2 = d3.line()
+            .x(function (d) { return x2(d.date); })
+            .y(function (d) { return y2(d.roads_and_bridges); });
+          break;
+        case "medical":
+          line = d3.line()
+            .x(function (d) { return x(d.date); })
+            .y(function (d) { return y(d.medical); });
+
+          line2 = d3.line()
+            .x(function (d) { return x2(d.date); })
+            .y(function (d) { return y2(d.medical); });
+          break;
+        case "buildings":
+          line = d3.line()
+            .x(function (d) { return x(d.date); })
+            .y(function (d) { return y(d.buildings); });
+
+          line2 = d3.line()
+            .x(function (d) { return x2(d.date); })
+            .y(function (d) { return y2(d.buildings); });
+          break;
+        case "shake_intensity":
+          line = d3.line()
+            .x(function (d) { return x(d.date); })
+            .y(function (d) { return y(d.shake_intensity); });
+
+          line2 = d3.line()
+            .x(function (d) { return x2(d.date); })
+            .y(function (d) { return y2(d.shake_intensity); });
+          break;
+        default:
+
+      }
+
+      Line_chart.append("path")
+          .datum(globalData)
+          .attr("class", e.target.id + "_line line")
+          .attr("d", line);
+
+      context.append("path")
+          .datum(globalData)
+          .attr("class", e.target.id + "_line line")
+          .attr("d", line2);
+    }
+  })
+}
+
 d3.csv("dataset/mc1-reports-data.csv", type, function (error, data) {
   if (error) throw error;
+  globalData = data;
 
   x.domain(d3.extent(data, function(d) { return d.date; }));
   y.domain([0, d3.max(data, function (d) { return d.power; })]);

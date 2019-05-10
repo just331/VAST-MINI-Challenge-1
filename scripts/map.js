@@ -58,7 +58,7 @@ let div = d3.select("#worldmap")
 
 let propObj = {data: null};
 // Load in my states data!
-d3.csv("dataset/test.csv", function(data) {
+d3.csv("dataset/mc1-reports-data.csv", function(data) {
     color.domain([0,1,2,3]); // setting the range of the input data
 
 // Load GeoJSON data and merge with states data

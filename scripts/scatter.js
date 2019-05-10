@@ -1,7 +1,7 @@
 
 var widthScatt = 1500,
     size = 215,
-    padding = 98;
+    padding = 68;
 
 var x = d3.scaleLinear()
     .range([padding / 2, size - padding / 2]);
@@ -19,7 +19,7 @@ var yAxis = d3.axisLeft()
 
 var colorScatt = d3.scaleOrdinal(d3.schemeCategory20);
 
-let legendScatt = ["Location 1", "Location 2", "Location 3", "Location 4", "Location 5", "Location 6", "Location 7", "Location 8", "Location 9", "Location 10", "Location 11", "Location 12", "Location 13", "Location 14", "Location 15", "Location 16", "Location 17", "Location 18"];
+let legendScatt = ["1: Palace Hills", "2: Northwest", "3: Old Town", "4: Safe Town", "5: Southwest", "6: Downtown", "7: Wilson Forest", "8: Scenic Vista", "9: Broadview", "10: Chapparal", "11: Terrapin Springs", "12: Pepper Mill ", "13: Cheddarford ", "14: Easton", "15: Weston", "16: Southton", "17: Oak Willow", "18: East Parton", "19: West Parton"];
 
 d3.csv("dataset/test.csv", function(error, data) {
     if (error) throw error;
@@ -133,14 +133,14 @@ d3.csv("dataset/test.csv", function(error, data) {
     }
 
     var legend2 = d3.select("#scatterplot").append("svg")
-        .attr("class", "legendScatter")
+        .attr("class", "legend")
         .attr("width", 140)
         .attr("height", 1290)
         .selectAll("g")
         .data(colorScatt.domain().slice().reverse())
         .enter()
         .append("g")
-        .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+        .attr("transform", function(d, i) { return "translate(0," + i * 15 + ")"; });
 
     legend2.append("rect")
         .attr("width", 18)

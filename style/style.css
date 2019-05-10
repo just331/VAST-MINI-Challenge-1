@@ -59,6 +59,12 @@ text.big-text{
     top:350px;
 }
 
+.legend2 {
+    position: absolute;
+    left: 800px;
+    top:350px;
+}
+
 /* On mouse hover, lighten state color */
 path:hover {
     fill-opacity: .7;

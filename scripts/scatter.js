@@ -1,7 +1,7 @@
 
 var widthScatt = 1500,
     size = 215,
-    padding = 20;
+    padding = 98;
 
 var x = d3.scaleLinear()
     .range([padding / 2, size - padding / 2]);

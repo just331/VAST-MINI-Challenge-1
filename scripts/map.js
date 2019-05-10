@@ -1,4 +1,4 @@
-let width = 900,
+{let width = 900,
     height =500,
     centered;
 
@@ -51,12 +51,12 @@ let bigText = g.append('text')
     .attr('y', 45);*/
 
 // Append Div for tooltip to SVG
-var div = d3.select("body")
+let div = d3.select("body")
     .append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
-var propObj = {data: null};
+let propObj = {data: null};
 // Load in my states data!
 d3.csv("dataset/test.csv", function(data) {
     color.domain([0,1,2,3]); // setting the range of the input data
@@ -94,7 +94,7 @@ d3.csv("dataset/test.csv", function(data) {
             .style("fill", function(d) {
 
                 // Get data value
-                var value = d.properties.intensity;
+                let value = d.properties.intensity;
 
                 if (value) {
                     //If value exists…
@@ -192,7 +192,7 @@ d3.csv("dataset/test.csv", function(data) {
 /*
 // Load map data
 d3.json('scripts/map.geo.json', function(error, mapData) {
-    var features = mapData.features;
+    let features = mapData.features;
     console.log(features);
     // Update color scale domain based on data
     color.domain([0, d3.max(features, nameLength)]);
@@ -227,7 +227,7 @@ function ID(d) {
 
 // Get name length
 function nameLength(d){
-    var n = nameFn(d);
+    let n = nameFn(d);
     return n ? n.length : 0;
 }
 
@@ -238,11 +238,11 @@ function fillFn(d){
 
 // When clicked, zoom in
 function clicked(d) {
-    var x, y, k;
+    let x, y, k;
 
     // Compute centroid of the selected path
     if (d && centered !== d) {
-        var centroid = path.centroid(d);
+        let centroid = path.centroid(d);
         x = centroid[0];
         y = centroid[1];
         k = 4;
@@ -286,9 +286,9 @@ function mouseout(d){
     bigText.text('');
 }
 
-var BASE_FONT = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+let BASE_FONT = "'Helvetica Neue', Helvetica, Arial, sans-serif";
 
-var FONTS = [
+let FONTS = [
     "Open Sans",
     "Josefin Slab",
     "Arvo",
@@ -312,13 +312,13 @@ var FONTS = [
     "Questrial",
     "Fjalla One",
     "Bitter",
-    "Varela Round"
+    "letela Round"
 ];
 
 function textArt(text){
     // Use random font
-    var fontIndex = Math.round(Math.random() * FONTS.length);
-    var fontFamily = FONTS[fontIndex] + ', ' + BASE_FONT;
+    let fontIndex = Math.round(Math.random() * FONTS.length);
+    let fontFamily = FONTS[fontIndex] + ', ' + BASE_FONT;
 
     bigText
         .style('font-family', fontFamily)
@@ -331,7 +331,7 @@ function textArt(text){
         .text(text);
 
 
-    var selection = effectLayer.selectAll('text')
+    let selection = effectLayer.selectAll('text')
         .data(positions, function(d){return d.text+'/'+d.index;});
 
     // Clear old ones
@@ -366,3 +366,4 @@ function textArt(text){
 
 */
 
+}

@@ -7,6 +7,18 @@ body{
     font: 12px Arial;
 }
 
+.zoom {
+  cursor: move;
+  fill: none;
+  pointer-events: all;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
 .background {
     fill: #fff;
     pointer-events: all;

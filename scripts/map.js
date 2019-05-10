@@ -16,7 +16,7 @@ let projection = d3.geoMercator()
     .center([-119, 0.01])
     .translate([2100,450]);
 
-let legendText = ["High", "Medium", "Low", "Nada"];
+let legendText = ["High", "Medium", "Low", "None"];
 
 let path = d3.geoPath()
     .projection(projection);

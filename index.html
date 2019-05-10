@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <title>Mini Challenge 1</title>
     
@@ -22,17 +22,31 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/topojson.v2.min.js"></script>
     <script src="https://d3js.org/d3-queue.v3.min.js"></script>
+    <script src="https://d3js.org/d3-time.v1.min.js"></script>
+<script src="https://d3js.org/d3-time-format.v2.min.js"></script>
     <script type="text/javascript" src="scripts/tooltip.js"></script>
-</head>
+  </head>
 
 <body style="background-color:#F2F3F5">
+  <h2><center>Scatterplot</center></h2>
+  <button id="sewer_and_water" class="customButton">sewer_and_water</button>
+  <button id="power" class="customButton">power</button>
+  <button id="roads_and_bridges" class="customButton">roads_and_bridges</button>
+  <button id="medical" class="customButton">medical</button>
+  <button id="buildings" class="customButton">buildings</button>
+  <button id="shake_intensity" class="customButton">shake_intensity</button>
+  <button id="location" class="customButton">location</button>
+  <div>
+    <svg id="lineChart" width="960" height="500"></svg>
+  </div>
 <h2><center>Map</center></h2>
 <svg id="worldMap" ></svg>
 <h2><center>Scatterplot</center></h2>
 <svg id="scatterplot"></svg>
 
-<script src="scripts/map.js"></script>
-<script src="scripts/scatter.js"></script>
+    <script src="scripts/map.js"></script>
+    <script src="scripts/scatter.js"></script>
+    <script src="scripts/lineChart.js"></script>
 
-</body>
+  </body>
 </html>

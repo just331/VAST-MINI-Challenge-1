@@ -1,30 +1,30 @@
-
-var widthScatt = 1500,
+{
+let widthScatt = 1500,
     size = 215,
     padding = 68;
 
-var x = d3.scaleLinear()
+let x = d3.scaleLinear()
     .range([padding / 2, size - padding / 2]);
 
-var y = d3.scaleLinear()
+let y = d3.scaleLinear()
     .range([size - padding / 2, padding / 2]);
 
-var xAxis = d3.axisBottom()
+let xAxis = d3.axisBottom()
     .scale(x)
     .ticks(6);
 
-var yAxis = d3.axisLeft()
+let yAxis = d3.axisLeft()
     .scale(y)
     .ticks(6);
 
-var colorScatt = d3.scaleOrdinal(d3.schemeCategory20);
+let colorScatt = d3.scaleOrdinal(d3.schemeCategory20);
 
 let legendScatt = ["1: Palace Hills", "2: Northwest", "3: Old Town", "4: Safe Town", "5: Southwest", "6: Downtown", "7: Wilson Forest", "8: Scenic Vista", "9: Broadview", "10: Chapparal", "11: Terrapin Springs", "12: Pepper Mill ", "13: Cheddarford ", "14: Easton", "15: Weston", "16: Southton", "17: Oak Willow", "18: East Parton", "19: West Parton"];
 
 d3.csv("dataset/test.csv", function(error, data) {
     if (error) throw error;
 
-    var domainByTrait = {},
+    let domainByTrait = {},
         traits = d3.keys(data[0]).filter(function(d) { return d !== "date" && d !== "location"; }),
         n = traits.length;
 
@@ -35,13 +35,13 @@ d3.csv("dataset/test.csv", function(error, data) {
     xAxis.tickSize(size * n);
     yAxis.tickSize(-size * n);
 
-    var brush = d3.brush()
+    let brush = d3.brush()
         .on("start", brushstart)
         .on("brush", brushmove)
         .on("end", brushend)
         .extent([[0,0],[size,size]]);
 
-    var svg1 = d3.select("#scatterplot").append("svg")
+    let svg1 = d3.select("#scatterplot").append("svg")
         .attr("width", size * n + padding)
         .attr("height", size * n + padding)
         .append("g")
@@ -61,7 +61,7 @@ d3.csv("dataset/test.csv", function(error, data) {
         .attr("transform", function(d, i) { return "translate(0," + i * size + ")"; })
         .each(function(d) { y.domain(domainByTrait[d]); d3.select(this).call(yAxis); });
 
-    var cell = svg1.selectAll(".cell")
+    let cell = svg1.selectAll(".cell")
         .data(cross(traits, traits))
         .enter().append("g")
         .attr("class", "cell")
@@ -78,7 +78,7 @@ d3.csv("dataset/test.csv", function(error, data) {
     cell.call(brush);
 
     function plot(p) {
-        var cell = d3.select(this);
+        let cell = d3.select(this);
 
         x.domain(domainByTrait[p.x]);
         y.domain(domainByTrait[p.y]);
@@ -101,7 +101,7 @@ d3.csv("dataset/test.csv", function(error, data) {
 
 
 
-    var brushCell;
+    let brushCell;
 
     // Clear the previously-active brush, if any.
     function brushstart(p) {
@@ -115,7 +115,7 @@ d3.csv("dataset/test.csv", function(error, data) {
 
     // Highlight the selected circles.
     function brushmove(p) {
-        var e = d3.brushSelection(this);
+        let e = d3.brushSelection(this);
         svg.selectAll("circle").classed("hidden", function(d) {
             return !e
                 ? false
@@ -128,7 +128,7 @@ d3.csv("dataset/test.csv", function(error, data) {
 
     // If the brush is empty, select all circles.
     function brushend() {
-        var e = d3.brushSelection(this);
+        let e = d3.brushSelection(this);
         if (e === null) svg.selectAll(".hidden").classed("hidden", false);
     }
 
@@ -157,7 +157,7 @@ d3.csv("dataset/test.csv", function(error, data) {
 });
 
 function cross(a, b) {
-    var c = [], n = a.length, m = b.length, i, j;
+    let c = [], n = a.length, m = b.length, i, j;
     for (i = -1; ++i < n;) for (j = -1; ++j < m;) c.push({x: a[i], i: i, y: b[j], j: j});
     return c;
-}
+}}

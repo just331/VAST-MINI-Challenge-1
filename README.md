@@ -40,6 +40,6 @@ In a prescient move, the city of St. Himark released a new damage reporting mobi
     2. Edges are reports of damage/shake intensity 
     2. Show relations and connections of damage in specific locations
     
-3. Database & API [Josh]
+3. Database & Line Chart [Josh]
     3. Store the provided data for easy retrieval for visualizations
     3. Use API to get the data from database             

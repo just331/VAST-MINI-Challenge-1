@@ -123,16 +123,10 @@ circle.hidden {
     stroke: #fff;
 }
 
-.legendScatter {
-    position: relative;
-
-}
-/*Fix dimensions of svg*/
 #scatterplot{
     display: block;
-    right: 400px;
-    height:550px;
-    width: 600px;
+    height:1550px;
+    width: 1600px;
     background-color: #fff;
     box-shadow: 0 1px 6px rgba(0,0,0,0.16), 0 2px 6px rgba(0,0,0,0.23);
     border-radius: 8px;

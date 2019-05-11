@@ -17,18 +17,19 @@ Demo Link: https://just331.github.io/VAST-MINI-Challenge-1/
     2. Scatter Plot
         2. Used to show global overview of all the reports divided by points of interests and location    
  
-2. Scatter plot and styling [Adriana] 
-    2.  Nodes will be locations 
+1. Scatter plot and styling [Adriana] 
+    1.  Nodes will be locations 
         2. Edges are reports of damage/shake intensity 
         2. Show relations and connections of damage in specific locations
-    3. Scatter Plot
+    2. Scatter Plot
        2. Used to show global overview of all the reports divided by points of interests and location    
-3. Database & Line Chart [Josh]
-    3. Store the provided data for easy retrieval for visualizations
-    4. Use API to get the data from database
-    5. Line Chart 
-        5. Used to show the data in a global time series
-        5. Able to zoom in to see a detailed view of the specified categories              
+
+1. Database & Line Chart [Josh]
+    1. Store the provided data for easy retrieval for visualizations
+    2. Use API to get the data from database
+    3. Line Chart 
+        3. Used to show the data in a global time series
+        3. Able to zoom in to see a detailed view of the specified categories              
 ## The Data: 
 * 83,072 rows 
 * 8 columns
